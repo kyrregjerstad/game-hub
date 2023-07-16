@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   HStack,
   Heading,
@@ -24,34 +25,36 @@ export const GenreList = () => {
 
   return (
     <>
-      <Heading fontSize="2xl" marginBottom={3}>
-        Genres
-      </Heading>
-      <List>
-        {data?.results.map((genre) => (
-          <ListItem key={genre.id} paddingY={"5px"}>
-            <HStack>
-              <Image
-                boxSize={"32px"}
-                borderRadius={8}
-                src={getCroppedImageUrl(genre.image_background)}
-                alt={genre.name}
-                objectFit="cover"
-              />
-              <Button
-                fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
-                fontSize="lg"
-                variant="link"
-                onClick={() => setSelectedGenreId(genre.id)}
-                whiteSpace="normal"
-                textAlign="left"
-              >
-                {genre.name}
-              </Button>
-            </HStack>
-          </ListItem>
-        ))}
-      </List>
+      <Box position={"fixed"}>
+        <Heading fontSize="2xl" marginBottom={3}>
+          Genres
+        </Heading>
+        <List>
+          {data?.results.map((genre) => (
+            <ListItem key={genre.id} paddingY={"5px"}>
+              <HStack>
+                <Image
+                  boxSize={"32px"}
+                  borderRadius={8}
+                  src={getCroppedImageUrl(genre.image_background)}
+                  alt={genre.name}
+                  objectFit="cover"
+                />
+                <Button
+                  fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
+                  fontSize="lg"
+                  variant="link"
+                  onClick={() => setSelectedGenreId(genre.id)}
+                  whiteSpace="normal"
+                  textAlign="left"
+                >
+                  {genre.name}
+                </Button>
+              </HStack>
+            </ListItem>
+          ))}
+        </List>
+      </Box>
     </>
   );
 };
