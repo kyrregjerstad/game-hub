@@ -1,5 +1,5 @@
 import React from "react";
-import type { Game } from "../hooks/useGames";
+import type { Game } from "../entities/Game";
 import {
   Card,
   CardBody,
